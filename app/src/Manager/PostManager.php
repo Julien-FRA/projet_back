@@ -12,8 +12,12 @@ class PostManager extends BaseManager
         $query = 'SELECT * FROM Post';
         $stmnt = $this->pdo->query($query);
 
-        $result = $stmnt->fetchAll(\PDO::FETCH_ASSOC)[0];
+        $result = $stmnt->fetchAll(\PDO::FETCH_ASSOC);
 
-        return new Post($result);
+        foreach ($result as $post) {
+            $posts[] = new Post($post);
+        }
+
+        return $posts;
     }
 }

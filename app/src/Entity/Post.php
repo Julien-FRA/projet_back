@@ -7,36 +7,55 @@ use Exception;
 
 class Post extends BaseEntity
 {
-    private int $id;
+    private int $idPost;
+    private int $idUser;
     private DateTime $createdAt;
     private string $title;
+    private mixed $image;
     private string $content;
-    private int $authorId;
 
     /**
      * @return int
      */
-    public function getId(): int
+    public function getIdPost(): int
     {
-        return $this->id;
+        return $this->idPost;
     }
 
     /**
-     * @param int $id
+     * @param int $idPost
      * @return Post
      */
-    protected function setId(int $id): self
+    public function setIdPost(int $idPost): self
     {
-        $this->id = $id;
+        $this->idPost = $idPost;
         return $this;
     }
 
     /**
-     * @return DateTime
+     * @return int
      */
-    public function getCreatedAt(): DateTime
+    public function getIdUser(): int
     {
-        return $this->createdAt;
+        return $this->idUser;
+    }
+
+    /**
+     * @param int $idUser
+     * @return Post
+     */
+    public function setIdUser(int $idUser): self
+    {
+        $this->idUser = $idUser;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreatedAt(): string
+    {
+        return $this->createdAt->format('d/m/y h:m:s');
     }
 
     /**
@@ -68,6 +87,24 @@ class Post extends BaseEntity
         return $this;
     }
 
+        /**
+     * @return mixed
+     */
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     * @return Post
+     */
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+        return $this;
+    }
+
     /**
      * @return string
      */
@@ -85,24 +122,4 @@ class Post extends BaseEntity
         $this->content = $content;
         return $this;
     }
-
-    /**
-     * @return int
-     */
-    public function getAuthorId(): int
-    {
-        return $this->authorId;
-    }
-
-    /**
-     * @param int $authorId
-     * @return Post
-     */
-    public function setAuthorId(int $authorId): self
-    {
-        $this->authorId = $authorId;
-        return $this;
-    }
-
-
 }

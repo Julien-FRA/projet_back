@@ -15,9 +15,9 @@ class PostController extends BaseController
     {
         $manager = new PostManager(PDOFactory::getInstance());
 
-        $post = $manager->findAllPosts();
+        $posts = $manager->findAllPosts();
 
-        $this->render('Frontend/home', ['francis' => $post], 'le titre de la page');
+        $this->render('Frontend/home', ['posts' => $posts], 'le titre de la page');
     }
 
     /**
