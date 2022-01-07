@@ -17,7 +17,7 @@ class UserManager extends BaseManager
         foreach ($result as $user) {
             $users[] = new User($user);
         }
-        var_dump($users);
+
         return $users;
 
     }
