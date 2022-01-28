@@ -8,7 +8,7 @@ use App\Manager\PostManager;
 class PostController extends BaseController
 {
     /**
-     * @Route(path="/home", name="homePage")
+     * @Route(path="/post", name="postPage")
      * @return void
      */
     public function getPost()

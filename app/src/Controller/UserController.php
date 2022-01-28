@@ -8,7 +8,7 @@ use App\Manager\UserManager;
 class UserController extends BaseController
 {
     /**
-     * @Route(path="/user", name="homePage")
+     * @Route(path="/user", name="userPage")
      * @return void
      */
     public function getUser()
