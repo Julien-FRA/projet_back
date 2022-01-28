@@ -8,7 +8,7 @@ use App\Manager\CommentManager;
 class CommentController extends BaseController
 {
     /**
-     * @Route(path="/", name="homePage")
+     * @Route(path="/comments", name="homePage")
      * @return void
      */
     public function getHome()

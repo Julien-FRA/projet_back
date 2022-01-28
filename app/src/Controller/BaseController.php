@@ -18,9 +18,7 @@ abstract class BaseController
     public function render(string $view, array $variables, string $pageTitle)
     {
         $template = './../View/template.php';
-        var_dump($template);
         $view = './../View/' . $view . '.php';
-        var_dump($view);
 
         foreach ($variables as $key => $variable) {
             ${$key} = $variable;
@@ -29,9 +27,8 @@ abstract class BaseController
         ob_start();
         require $view;
         $content = ob_get_contents();
-        
+
         $title = $pageTitle;
-        require $template;
         exit;
     }
 

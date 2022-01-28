@@ -14,4 +14,4 @@ foreach ($posts as $post) {
     <div><?= $post->getContent(); ?></div>
 <?php
 }
-?>
+?>git
