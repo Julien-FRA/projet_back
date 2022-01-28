@@ -1,7 +1,7 @@
 <h1>Liste des utilisateurs</h1>
 
 <?php
-// /** @var $users \App\Entity\Comment */
+/** @var $users \App\Entity\User */
 
 foreach ($users as $user) {
 ?>

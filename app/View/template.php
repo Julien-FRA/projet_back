@@ -10,6 +10,7 @@
 <body>
 
 <?= $content; ?>
+<?= $post; ?>
 
 </body>
 </html>
