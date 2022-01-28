@@ -25,8 +25,8 @@
                 <td><?= $post->getContent(); ?></td>
                 <td>
                     <a href="">Voir</a>
-                    <a href="">Editer</a>
-                    <a href="">Supprimer</a>
+                    <a href="/editPost?id=<?= $post->getIdPost(); ?>">Editer</a>
+                    <a href="/deletePost">Supprimer</a>
                 </td>
             </tr>
         <?php
@@ -34,4 +34,4 @@
         ?>
     </tbody>
 </table>
-<a href="add_post.php">Ajouter</a>
+<a class="btn btn-primay" href="/addPost">Ajouter</a>
