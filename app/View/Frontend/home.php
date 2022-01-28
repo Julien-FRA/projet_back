@@ -1,3 +1,4 @@
+
 <h1>Home page</h1>
 
 
@@ -14,4 +15,7 @@ foreach ($posts as $post) {
     <div><?= $post->getContent(); ?></div>
 <?php
 }
-?>git
+?>
+
+
+</html>
