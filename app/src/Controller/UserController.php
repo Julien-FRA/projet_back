@@ -8,10 +8,10 @@ use App\Manager\UserManager;
 class UserController extends BaseController
 {
     /**
-     * @Route(path="/", name="homePage")
+     * @Route(path="/user", name="userPage")
      * @return void
      */
-    public function getHome()
+    public function getUser()
     {
         $manager = new UserManager(PDOFactory::getInstance());
 

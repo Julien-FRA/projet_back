@@ -8,10 +8,10 @@ use App\Manager\CommentManager;
 class CommentController extends BaseController
 {
     /**
-     * @Route(path="/", name="homePage")
+     * @Route(path="/comment", name="commentPage")
      * @return void
      */
-    public function getHome()
+    public function getComment()
     {
         $manager = new CommentManager(PDOFactory::getInstance());
 

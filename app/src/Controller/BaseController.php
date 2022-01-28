@@ -29,9 +29,8 @@ abstract class BaseController
         ob_start();
         require $view;
         $content = ob_get_contents();
-        
+
         $title = $pageTitle;
-        require $template;
         exit;
     }
 

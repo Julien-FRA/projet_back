@@ -8,10 +8,10 @@ use App\Manager\PostManager;
 class PostController extends BaseController
 {
     /**
-     * @Route(path="/", name="homePage")
+     * @Route(path="/post", name="postPage")
      * @return void
      */
-    public function getHome()
+    public function getPost()
     {
         $manager = new PostManager(PDOFactory::getInstance());
 
