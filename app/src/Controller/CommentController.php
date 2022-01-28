@@ -17,7 +17,7 @@ class CommentController extends BaseController
 
         $comments = $manager->findAllComments();
 
-        $this->render('Frontend/comments', ['comments' => $comments], 'Page Comments');
+        $this->render('Comment/comments', ['comments' => $comments], 'Page Comments');
     }
 
     /**

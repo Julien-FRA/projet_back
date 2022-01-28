@@ -17,7 +17,7 @@ class UserController extends BaseController
 
         $users = $manager->findAllUsers();
 
-        $this->render('Frontend/user', ['users' => $users], 'Page User');
+        $this->render('User/user', ['users' => $users], 'Page User');
     }
 
     /**

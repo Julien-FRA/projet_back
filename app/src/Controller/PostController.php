@@ -16,8 +16,22 @@ class PostController extends BaseController
         $manager = new PostManager(PDOFactory::getInstance());
 
         $posts = $manager->findAllPosts();
+        // $create_post = $manager->addPost();
 
-        $this->render('Frontend/home', ['posts' => $posts], 'Page posts');
+        $this->render('Post/post', ['posts' => $posts], 'Page posts');
+    }
+
+    /**
+     * @Route(path="/add_post", name="addPostPage")
+     * @return void
+     */
+    public function getAddPost()
+    {
+        $manager = new PostManager(PDOFactory::getInstance());
+
+        $create_post = $manager->addPost();
+
+        $this->render('Post/add_post', ['posts' => $create_post], 'Page Add posts');
     }
 
     /**

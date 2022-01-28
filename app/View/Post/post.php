@@ -1,0 +1,37 @@
+<h1>Posts page</h1>
+
+<table>
+    <thead>
+        <th>Nom</th>
+        <th>ID Post</th>
+        <th>ID User</th>
+        <th>Date</th>
+        <th>Image</th>
+        <th>Contenu</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <?php
+        /** @var $posts \App\Entity\Post */
+
+        foreach ($posts as $post) {
+        ?>
+            <tr>
+                <td><?= $post->getTitle(); ?></td>
+                <td>Id du post : <?= $post->getIdPost(); ?></td>
+                <td>Id du user : <?= $post->getIdUser(); ?></td>
+                <td>Date de publication du post : <?= $post->getCreatedAt(); ?></td>
+                <td><?= $post->getImage(); ?></td>
+                <td><?= $post->getContent(); ?></td>
+                <td>
+                    <a href="">Voir</a>
+                    <a href="">Editer</a>
+                    <a href="">Supprimer</a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+    </tbody>
+</table>
+<a href="add_post.php">Ajouter</a>
