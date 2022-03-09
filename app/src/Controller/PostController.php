@@ -68,12 +68,17 @@ class PostController extends BaseController
 
     // Affichage du formulaire pour l'edition de posts
     /**
-     * @Route(path="/editPost", name="editPostPage")
+     * @Route(path="/editPost/{id}", name="editPostPage")
      * @return void
      */
-    public function getEditPost()
+    public function getEditPost(int $id)
     {
-        $this->render('Post/edit_post', [], 'Page Edit posts');
+        $manager = new PostManager(PDOFactory::getInstance());
+
+        $post = $manager->editPost($id);
+
+        $this->render('Post/edit_post', ['post' => $post], 'Page Edit posts');
+
     }
 
     // Récupération des infos du formulaire l'edition de posts

@@ -25,7 +25,7 @@
                 <td><?= $post->getContent(); ?></td>
                 <td>
                     <a href="">Voir</a>
-                    <a href="/editPost?id=<?= $post->getIdPost(); ?>">Editer</a>
+                    <a href="/editPost/<?= $post->getIdPost(); ?>">Editer</a>
                     <a href="/deletePost/<?= $post->getIdPost(); ?>">Supprimer</a>
                 </td>
             </tr>
