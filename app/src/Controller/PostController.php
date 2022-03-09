@@ -111,15 +111,17 @@ class PostController extends BaseController
 
     // Suppression d'un post
     /**
-     * @Route(path="/deletePost", name="deletePostPage")
+     * @Route(path="/deletePost?{id}", name="deletePostPage")
      * @return void
      */
-    public function postDeletePost()
+    public function postDeletePost(int $id)
     {
+
+        $id = htmlspecialchars($_GET['id']);
+
         $manager = new PostManager(PDOFactory::getInstance());
 
-        
-        $delete_post = $manager->deletePost();
+        $delete_post = $manager->deletePost($id);
 
         if ($delete_post) {
             header('Location: /post');
@@ -127,6 +129,16 @@ class PostController extends BaseController
         } else {
             throw new Exception('Erreur de supression du post');
         }
+    }
+
+    // Affichage de suppression d'un post
+    /**
+     * @Route(path="/deletePost", name="deletePostPage")
+     * @return void
+     */
+    public function getDeletePost()
+    {
+        $this->render('Post/delete_post', [], 'Page Delete posts');
     }
 
     /**

@@ -46,7 +46,7 @@ class PostManager extends BaseManager
 
     public function editPost($post)
     {
-        $idPost = $post->getIdPost();
+        // $idPost = $post->getIdPost();
         $idUser = $post->getIdUser();
         $title = $post->getTitle();
         $image = $post->getImage();
@@ -66,14 +66,16 @@ class PostManager extends BaseManager
         return $result;
     }
 
-    public function deletePost($post)
+    public function deletePost(int $id)
     {
-        $idPost = $post->getIdPost();
-        $query = "DELETE * FROM `Post` WHERE `idPost`=:idPost;";
+        $id = htmlspecialchars($_GET['id']);
+        // var_dump($id);
+        // $idPost = $post->getIdPost();
+        $query = "DELETE FROM Post WHERE `idPost`=$id;";
 
         $stmt = $this->pdo->prepare($query);
 
-        $stmt->bindValue(':idPost', $idPost, \PDO::PARAM_INT);
+        $stmt->bindValue(':idPost', $id, \PDO::PARAM_INT);
         
         $result = $stmt->execute();
 
