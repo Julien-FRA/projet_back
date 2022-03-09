@@ -68,14 +68,14 @@ class PostManager extends BaseManager
 
     public function deletePost(int $id)
     {
-        $id = htmlspecialchars($_GET['id']);
+        // $id = htmlspecialchars($_GET['id']);
         // var_dump($id);
         // $idPost = $post->getIdPost();
-        $query = "DELETE FROM Post WHERE `idPost`=$id;";
+        $query = "DELETE FROM Post WHERE `idPost`=:id;";
 
         $stmt = $this->pdo->prepare($query);
 
-        $stmt->bindValue(':idPost', $id, \PDO::PARAM_INT);
+        $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
         
         $result = $stmt->execute();
 
