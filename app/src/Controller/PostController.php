@@ -33,6 +33,21 @@ class PostController extends BaseController
         $this->render('Post/add_post', [], 'Page Add posts');
     }
 
+    // Affichage d'un posts simple
+    /**
+     * @Route(path="/showPost/{id}", name="showPostPage")
+     * @return void
+     */
+    public function getShowPost(int $id)
+    {
+        $manager = new PostManager(PDOFactory::getInstance());
+
+        $post = $manager->showPost($id);
+
+        $this->render('Post/show_post', ['post' => $post], 'Page Show posts');
+    }
+
+
     // Récupération des infos du formulaire d'ajout de posts
     /**
      * @Route(path="/createPost", name="createPostPage")

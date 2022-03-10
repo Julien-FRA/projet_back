@@ -44,6 +44,21 @@ class PostManager extends BaseManager
         return $result;
     }
 
+    public function showPost(int $id)
+    {
+        $query = "SELECT * FROM `Post` WHERE `idPost`=:id;";
+
+        $stmt = $this->pdo->prepare($query);
+
+        $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+
+        $result = $stmt->execute();
+
+        $post = $stmt->fetch();
+
+        return new Post($post);
+    }
+
     public function editPost(int $id)
     {
         $query = "SELECT * FROM `Post` WHERE `idPost`=:id;";
