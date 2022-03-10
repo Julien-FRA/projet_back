@@ -1,4 +1,5 @@
-<h1>Posts page</h1>
+<h1>Page d'accueil</h1>
+<h1>Liste des posts</h1>
 
 <table>
     <thead>
@@ -35,3 +36,7 @@
     </tbody>
 </table>
 <a class="btn btn-primay" href="/addPost">Ajouter</a>
+
+<h1>Page des users</h1>
+
+<a href="/user">Ici</a>

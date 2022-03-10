@@ -1,7 +1,7 @@
 <h1>Page ajout de post</h1>
 
 <form action="/createPost" method="POST">
-    <label for="idUser">Id</label>
+    <label for="idUser">Id user :</label>
     <input type="number" name="idUser" id="idUser" class="form-control">
     <label for="title">Titre</label>
     <input type="text" name="title" id="title" class="form-control">
