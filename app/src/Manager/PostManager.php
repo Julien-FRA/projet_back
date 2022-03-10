@@ -74,22 +74,20 @@ class PostManager extends BaseManager
         return new Post($post);
     }
 
-    public function updatePost($post)
+    public function updatePost($post, $id)
     {
-        // $idPost = $post->getIdPost();
-        $idUser = $post->getIdUser();
         $title = $post->getTitle();
         $image = $post->getImage();
         $content = $post->getContent();
 
-        $query = "UPDATE `Post` SET `idUser`=:idUser, `title`=:title, `image`=:image, `content`=:content WHERE `idPost`=:idPost;";
+        $query = "UPDATE `Post` SET `title`=:title, `image`=:image, `content`=:content WHERE `idPost`=:id;";
 
         $stmt = $this->pdo->prepare($query);
 
-        $stmt->bindValue(':idUser', $idUser, \PDO::PARAM_INT);
         $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
         $stmt->bindValue(':image', $image, \PDO::PARAM_LOB);
         $stmt->bindValue(':content', $content, \PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, \PDO::PARAM_STR);
 
         $result = $stmt->execute();
 
@@ -103,9 +101,9 @@ class PostManager extends BaseManager
         $stmt = $this->pdo->prepare($query);
 
         $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-        
+
         $result = $stmt->execute();
 
-        return $result;     
+        return $result;
     }
 }

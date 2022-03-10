@@ -98,10 +98,10 @@ class PostController extends BaseController
 
     // Récupération des infos du formulaire l'edition de posts
     /**
-     * @Route(path="/updatePost", name="updatePostPage")
+     * @Route(path="/updatePost/{id}", name="updatePostPage")
      * @return void
      */
-    public function postEditPost()
+    public function postUpdatePost(int $id)
     {
         $manager = new PostManager(PDOFactory::getInstance());
 
@@ -119,7 +119,7 @@ class PostController extends BaseController
             "content" => $content,
         ));
 
-        $edit_post = $manager->editPost($post);
+        $edit_post = $manager->updatePost($post, $id);
 
         if ($edit_post) {
             header('Location: /post');

@@ -1,6 +1,6 @@
 <h1>Page édition de post</h1>
 
-<form action="/updatePost" method="POST">
+<form action="/updatePost/<?= $post->getIdPost(); ?>" method="POST">
     <label for="idUser">Id</label>
     <input type="number" name="idUser" id="idUser" class="form-control" value="<?= $post->getIdPost(); ?>">
     <label for="title">Titre</label>
