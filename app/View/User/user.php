@@ -6,7 +6,6 @@
 foreach ($users as $user) {
 ?>
     <p><?= $user->getIdUser(); ?></p>
-    <p><?= $user->getRole(); ?></p>
     <p><?= $user->getName(); ?></p>
     <p><?= $user->getEmail(); ?></p>
     <p><?= $user->getPassword(); ?></p>

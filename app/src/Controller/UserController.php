@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Core\Factory\PDOFactory;
 use App\Manager\UserManager;
+use App\Entity\User;
+use Exception;
 
 class UserController extends BaseController
 {
@@ -38,5 +40,46 @@ class UserController extends BaseController
     public function getShowTest()
     {
         echo 'je suis bien la bonne méthode';
+    }
+
+    // Affichage du formulaire pour l'ajout d'user
+    /**
+     * @Route(path="/addUser", name="addUserPage")
+     * @return void
+     */
+    public function getAddUser()
+    {
+        $this->render('User/addUser', [], 'Page Add user');
+    }
+
+    // Récupération des infos du formulaire d'ajout d'user
+    /**
+     * @Route(path="/createUser", name="createUserPage")
+     * @return void
+     */
+    public function postCreateUser()
+    {
+        $manager = new UserManager(PDOFactory::getInstance());
+
+        if (isset($_POST)) {
+            $email = $_POST['email'];
+            $name = $_POST['name'];
+            $password = $_POST['password'];
+        }
+
+        $post = new User(array(
+            "email" => $email,
+            "name" => $name,
+            "password" => $password
+        ));
+
+        $create_user = $manager->addUser($post);
+
+        if ($create_user) {
+            header('Location: /user');
+            exit;
+        } else {
+            throw new Exception('Erreur d\'ajout user');
+        }
     }
 }

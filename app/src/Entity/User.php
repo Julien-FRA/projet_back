@@ -23,34 +23,34 @@ class User extends BaseEntity
      * @param int $idUser
      * @return User
      */
-    public function setIdUser($idUser) : self
+    public function setIdUser($idUser): self
     {
         $this->idUser = $idUser;
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getRole() : int
-    {
-        return $this->idUser;
-    }
+    // /**
+    //  * @return mixed
+    //  */
+    // public function getRole() : int
+    // {
+    //     return $this->role;
+    // }
 
-    /**
-     * @param int $role
-     * @return User
-     */
-    public function setRole($role): self
-    {
-        $this->role = $role;
-        return $this;
-    }
+    // /**
+    //  * @param int $role
+    //  * @return User
+    //  */
+    // public function setRole($role): self
+    // {
+    //     $this->role = $role;
+    //     return $this;
+    // }
 
     /**
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -69,7 +69,7 @@ class User extends BaseEntity
     /**
      * @return mixed
      */
-    public function getEmail() : string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -87,7 +87,7 @@ class User extends BaseEntity
     /**
      * @return string
      */
-    public function getPassword() : string
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -101,5 +101,4 @@ class User extends BaseEntity
         $this->password = $password;
         return $this;
     }
-
 }
